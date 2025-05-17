@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6a421979ebaec4ca89794b74597d9f, type: 3}
+  m_Name: Example Wave Inner B
+  m_EditorClassIdentifier: 
+  waves:
+  - direction: {x: 0.5087092, y: 0.86093843}
+    number: 0.054385547
+    steepness: 0.139682
+    amplitude: 1.1538328
+    speed: 13.430518
+  - direction: {x: -0.59558403, y: -0.80329305}
+    number: 0.07692426
+    steepness: 0.17390868
+    amplitude: 1.0156496
+    speed: 11.292831
+  - direction: {x: -0.5202452, y: 0.85401696}
+    number: 0.26148432
+    steepness: 0.22036836
+    amplitude: 0.37860778
+    speed: 6.1250787
+  - direction: {x: 0.855427, y: -0.5179234}
+    number: 0.41039973
+    steepness: 0.20752184
+    amplitude: 0.22716567
+    speed: 4.889123
+  - direction: {x: 0.13464762, y: -0.99089354}
+    number: 0.5271741
+    steepness: 0.1981813
+    amplitude: 0.16888635
+    speed: 4.313775
+  - direction: {x: 0.5426057, y: 0.8399875}
+    number: 0.74208283
+    steepness: 0.18822062
+    amplitude: 0.113946445
+    speed: 3.6358697
+  - direction: {x: -0.88873756, y: 0.4584164}
+    number: 1.1089125
+    steepness: 0.1713256
+    amplitude: 0.06940822
+    speed: 2.9743078
+  - direction: {x: -0.46564066, y: -0.8849739}
+    number: 1.19473
+    steepness: 0.16329768
+    amplitude: 0.06140393
+    speed: 2.8654947
+  autoWaveSpeed: 1
+  autoWaveSpeedGravity: 9.81
+  autoWaveHeight: 1
+  autoWaveHeightRatio: 0.143
+  textureSize: 512
+  projectionSize: 512
+  hillnessOffsetFactor: 0.1
+  hillnessNormalPower: 1
+  globalAmplitudeMultiplier: 3
+  globalSteepnessMultiplier: 2
+  globalHillnessMultiplier: 1
+  includeLocalAreas: 1
+  rippleMaxDepth: 3
+  rippleTime: 0.5
+  rippleRestoreTime: 15
+  rippleBlurStep: 0.5
+  rippleBlurAttenuation: 0.3

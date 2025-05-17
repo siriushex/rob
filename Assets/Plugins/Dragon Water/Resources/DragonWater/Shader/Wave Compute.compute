@@ -1,0 +1,199 @@
+#pragma kernel CSMain
+
+#pragma multi_compile _ _CALCULATE_HEIGHT_OFFSET
+
+#define E 0.0001
+#define PI 3.14159265359
+#define G 9.81
+
+struct GerstnerWave
+{
+    float2 direction;
+    float number;
+    float steepness;
+    float amplitude;
+    float speed;
+};
+
+struct LocalWaveAreaEntry
+{
+    float2 position;
+    float2 radius;
+    float3 influences; // x=amplitude, y=steepness, z=hillness
+};
+
+RWTexture2D<float4> ResultOffset;
+RWTexture2D<float3> ResultNormal;
+#if _CALCULATE_HEIGHT_OFFSET
+RWTexture2D<float> ResultHeightOffset;
+#endif
+StructuredBuffer<GerstnerWave> Waves;
+StructuredBuffer<LocalWaveAreaEntry> LocalAreas;
+uint WaveCount;
+uint LocalAreaCount;
+uint UseLocalArea;
+float Time;
+float2 CameraOffset;
+float2 WorldOriginPosition;
+float WorldOriginRotation;
+uint TextureSize;
+float ProjectionSize;
+float3 BaseInfluences;
+float HillnessOffsetFactor;
+float HillnessNormalPower;
+
+
+inline float InvLerp(float from, float to, float value)
+{
+    return (value - from) / (to - from);
+}
+
+float2 RotateVec2(float2 position, float rot)
+{
+    float s = sin(rot);
+    float c = cos(rot);
+    return float2(
+        (position.x * c) - (position.y * s),
+        (position.y * c) + (position.x * s)
+    );
+ }
+
+float3 GetLocalInfluences(float2 position)
+{
+    float3 influences = BaseInfluences;
+
+    uint count = LocalAreaCount * UseLocalArea;
+    for (uint i = 0; i < count; i++)
+    {
+        LocalWaveAreaEntry area = LocalAreas[i];
+
+        float radius = area.radius.x;
+        float innerRadius = area.radius.x * area.radius.y;
+
+        float d = distance(position, area.position);
+        float f = 1.0;
+        if (d < innerRadius)
+        {
+            f = 0.0;
+        }
+        else if (d < radius)
+        {
+            f = InvLerp(innerRadius, radius, d);
+        }
+
+        influences *= lerp(area.influences, 1, f);
+    }
+
+    return influences;
+}
+
+void ProcessGerstnerWave(GerstnerWave wave, float2 position, inout float3 offset, inout float3 normal, float3 influences)
+{
+    float d = dot(wave.direction, position);
+    float f = wave.number * (d - (wave.speed * Time));
+
+    float C = cos(f);
+    float S = sin(f);
+
+    float width = wave.steepness * wave.amplitude * C * influences.x * influences.y;
+    float height = wave.amplitude * S * influences.x;
+
+    offset += float3(
+        wave.direction.x * width,
+        height,
+        wave.direction.y * width
+        );
+
+    normal -= float3(
+        wave.direction.x * width * wave.number,
+        height * wave.number * wave.steepness * influences.y,
+        wave.direction.y * width * wave.number
+        );
+}
+
+float CalculateHillness(float3 offset, float3 normal, float avgAmplitude, float avgSteepness, float3 influences)
+{
+    //float len = length(offset.xz);
+    float hFactor = offset.y /*max(0, offset.y)*/ / avgAmplitude;
+    float nFactor = saturate(1.0 - dot(float3(0, 1, 0), normal));
+    //return (((len / avgAmplitude) + hFactor) * avgSteepness) * HillnessOffsetFactor * influences.z + pow(nFactor, HillnessNormalPower);
+    return ((hFactor * HillnessOffsetFactor) + pow(nFactor, HillnessNormalPower)) * influences.z; // simpler formula, more intuitive
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    float4 resultOffset;
+    float3 resultNormal;
+
+    float2 uv = float2(id.x, id.y) / float2(TextureSize, TextureSize);
+    float2 position = CameraOffset + float2(
+        uv.x - 0.5,
+        uv.y - 0.5
+        ) * ProjectionSize;
+
+    if (id.x == 0 || id.y == 0 || id.x == (TextureSize - 1) || id.y == (TextureSize - 1))
+    {
+        resultOffset = float4(0, 0, 0, 0);
+        resultNormal = float3(0, 0, 0);
+    }
+    else
+    {
+        float3 influences = GetLocalInfluences(position);
+
+        float2 transformedPosition = position - WorldOriginPosition;
+        transformedPosition = RotateVec2(transformedPosition, WorldOriginRotation);
+
+        float3 offset = float3(0, 0, 0);
+        float3 normal = float3(0, 0, 0);
+        float avgAmplitude = 0.0, avgSteepness = 0.0;
+        for (uint i = 0; i < WaveCount; i++)
+        {
+            ProcessGerstnerWave(Waves[i], transformedPosition, offset, normal, influences);
+            avgAmplitude += Waves[i].amplitude;
+            avgSteepness += Waves[i].steepness;
+        }
+
+        avgAmplitude /= WaveCount;
+        avgSteepness /= WaveCount;
+
+        float hillness = CalculateHillness(offset, normalize(float3(0,1,0) + normal), avgAmplitude, avgSteepness, influences);
+
+        resultOffset = float4(offset.x, offset.y, offset.z, hillness);
+        resultNormal = float3(normal.x, normal.y, normal.z);
+    }
+
+    ResultOffset[id.xy] = resultOffset;
+    ResultNormal[id.xy] = resultNormal;
+
+    #ifdef _CALCULATE_HEIGHT_OFFSET
+    {
+        AllMemoryBarrier();
+
+        float resultHeightOffset = resultOffset.y;
+        float2 samplePosition = position - resultOffset.xz;
+
+        int precision = 3;
+        while (--precision > 0)
+        {
+            float2 sampleUV = ((samplePosition - CameraOffset) / ProjectionSize) + float2(0.5, 0.5);
+            float2 sampleIDf = sampleUV * float2(TextureSize, TextureSize);
+            uint2 sampleID = uint2(
+                floor(clamp(sampleIDf.x, 1, TextureSize - 2)),
+                floor(clamp(sampleIDf.y, 1, TextureSize - 2))
+                );
+
+            float4 offsetSample = ResultOffset[sampleID];
+            resultHeightOffset = offsetSample.y;
+
+            if (precision > 1)
+            {
+                float2 difference = (samplePosition + offsetSample.xz) - position;
+                samplePosition -= difference;
+            }
+        }
+
+        ResultHeightOffset[id.xy] = resultHeightOffset;
+    }
+    #endif
+}

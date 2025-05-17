@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fd8ac118ad5a734194e5da87b7a75ef, type: 3}
+  m_Name: Example Material B
+  m_EditorClassIdentifier: 
+  waterDepth: 3
+  shallowWaterColor: {r: 0, g: 0.76, b: 0.76, a: 0.5}
+  deepWaterColor: {r: 0, g: 0.41, b: 0.47, a: 0.9}
+  smoothness: 0.9
+  specular: {r: 0.14, g: 0.14, b: 0.14, a: 1}
+  specularHighlights: 1
+  colorNoiseHillnessOffset: 0
+  colorNoiseHillnessLighten: 0.1
+  colorNoiseHillnessDarken: 0.2
+  useColorNoiseTexture: 1
+  colorNoiseTexture1:
+    texture: {fileID: 2800000, guid: 9925a0379e98f8549a9a0e9dae5cf444, type: 3}
+    size: 512
+    speed: 0.12
+    strength: 1
+  colorNoiseTexture2:
+    texture: {fileID: 2800000, guid: 9925a0379e98f8549a9a0e9dae5cf444, type: 3}
+    size: 512
+    speed: 0.05
+    strength: 1
+  colorNoiseColor: {r: 0, g: 0.63064, b: 0.7075472, a: 1}
+  colorNoiseIntensity: 1
+  colorNoiseEmission: 0
+  sssGlobalIntensity: 1
+  sssNormalInfluence: 0.2
+  sssPower: 2
+  sssOverlayStrength: 4
+  sssEmissionStrength: 0.5
+  normalGlobalStrength: 1
+  useNormalMap: 0
+  normalMap1:
+    texture: {fileID: 0}
+    size: 10
+    speed: 0.05
+    strength: 0.5
+  normalMap2:
+    texture: {fileID: 0}
+    size: 15
+    speed: -0.07
+    strength: 0.5
+  useFoam: 1
+  foamGlobalIntensity: 1
+  foamEmissionRate: 0
+  foamColor: {r: 1, g: 1, b: 1, a: 1}
+  foamNoiseTexture: {fileID: 2800000, guid: 881d4d2753ad7fa48b4ad14e8467b390, type: 3}
+  foamNoiseSize: 1
+  foamSmoothnessFactor: 0
+  foamSpecularFactor: 0
+  foamNormalAttenuation: 0.5
+  foamNormalAttenuationBias: 0
+  foamEdge:
+    intensity: 1
+    maxDepth: 10
+    power: 2
+  foamHillness:
+    intensity: 0.5
+    hillnessThreshold: 0
+    hillnessMultiplier: 1.5
+  foamExtraLayers: 0
+  foamHillnessExtraLayer1:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    noiseTexture: {fileID: 0}
+    noiseSize: 2
+    intensity: 1
+    hillnessThreshold: 0.5
+    hillnessMultiplier: 1.5
+  foamHillnessExtraLayer2:
+    color: {r: 1, g: 1, b: 1, a: 1}
+    noiseTexture: {fileID: 0}
+    noiseSize: 2
+    intensity: 1
+    hillnessThreshold: 0.5
+    hillnessMultiplier: 1.5
+  transparencyType: 0
+  refractionStrength: 0.15
+  refractionDistanceFactor: 100
+  reflectionsMode: 2
+  reflectionsIntensity: 1
+  reflectionsCubemap: {fileID: 0}
+  reflectionsGlossyTint: {r: 0, g: 0, b: 0, a: 1}
+  rippleSmoothnessFactor: 0.5
+  rippleSpecularFactor: 0
+  rippleColor:
+    color: {r: 0, g: 0.8867924, b: 0.73448807, a: 1}
+    attenuationStrength: 0.8
+    attenuationBias: 1
+  rippleNoise:
+    texture: {fileID: 0}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    scale: 10
+    attenuationStrength: 0.5
+    attenuationBias: 0
+  rippleNormal:
+    heightOffset: 0.25
+    heightStrength: 0
+    attenuationStrength: 0.7
+    attenuationBias: 0
+  rippleFoam:
+    attenuationStrength: 1
+    attenuationBias: 0

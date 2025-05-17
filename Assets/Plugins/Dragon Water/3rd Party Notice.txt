@@ -1,0 +1,68 @@
+==================================== 3rd Party Notice ====================================
+
+1. /Textures/Caustics:
+
+Water Caustics by leeor_net
+https://opengameart.org/content/water-caustics-effect-small
+License: CC-0
+
+
+2. /Textures/Noise:
+
+Noise Texture Pack by Screaming Brain Studios
+https://opengameart.org/content/noise-texture-pack
+License: CC-0
+
+
+3. /Textures/Normal:
+
+Water textures by Katsukagi
+https://3dtextures.me/tag/water/
+License: CC0
+
+Animated Water by Pixel-Furnace
+https://textures.pixel-furnace.com
+License: Free Pixel-Furnace License (similar to CC-0)
+
+
+
+==================================== Pixel-Furnace License ====================================
+
+Terms & Conditions
+General Terms and Conditions (GTC) of Pixel-Furnace – Chris Ebbinger, Kaulbachweg 9, 93051 Regensburg (hereinafter referred to as Pixel-Furnace) for digital content
+
+1. Scope
+These Terms and Conditions apply for all digital content provided by Pixel-Furnace. Deviating conditions are inapplicable, unless Pixel-Furnace has agreed to their applicability in writing.
+
+2. Availability
+Digital content on this website can usually be acquired 24 hours a day. However Pixel-Furnace cannot guarantee the accessibility of its service and is not liable for any faults of the Internet.
+
+3. Copyright
+Digital content provided by Pixel-Furnace is protected by copyright. The user is not authorized to use, display or edit content that is not explicitly offered as a download. The user undertakes to recognize and comply with the copyrights. No copyright of the content will be transferred to the user. The user is only entitled to use the retrieved content for his own purpose. The user is not allowed to remove any copyright notices, trademarks or other reservations of rights in the retrieved content.
+
+4. Product Usage
+After downloading digital products from Pixel-Furnace the user is allowed to use them for:
+
+Distributing and selling 3D models and computer games bundled with modified or unmodified versions of the textures.
+Creating and publishing 2D and 3D graphics, websites, website templates, movies, advertisements, design themes and printed media.
+The user is not allowed to use the products for:
+
+Selling or distributing them in collections or by themselves.
+Any purpose that violates German or other applicable law or regulation.
+The user is not required provide attribution.
+
+5. Privacy
+Pixel-Furnace uses cookies to provide functionality (like storing your cookie choices) and to measure the website's performance using Google Analytics.
+
+We collect anonymized data about the users visiting the website, specifically when they visited and how they interacted with the website. This helps us to find and improve issues on the website. The data is sent to and analyzed by Google Analytics.
+Google's Privacy Policy
+
+You can change your cookie preferences here:
+
+Cookie Settings
+The user has a right to know and a right to rectification, blocking and deletion of stored data.
+
+6. Final Clauses
+German law applies, excluding the CISG. Fulfillment is Regensburg. Jurisdiction for merchants is Regensburg. If a substantial part of the contract under these conditions is or becomes invalid, the validity of the remaining provisions shall not be affected.
+
+Latest Update: 09/22/2018

@@ -1,0 +1,18 @@
+newmtl Tsunami1Mtl
+Material Color
+Ka 0.000638183 0.254916 0.632043
+Kd 0.000638183 0.254916 0.632043
+Ks 9.25991e-05 0.0369878 0.0917082 
+
+d 1
+
+Ns 0
+
+map_Ka Tsunami1_diff.png
+map_Kd Tsunami1_diff.png
+map_d Tsunami1_diff.png
+
+map_Bump Tsunami1_nmap.png
+
+map_Ns Tsunami1_spec.png
+

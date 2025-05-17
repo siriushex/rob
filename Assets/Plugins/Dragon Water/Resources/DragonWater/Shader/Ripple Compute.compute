@@ -1,0 +1,181 @@
+#pragma kernel CSMain
+
+#pragma multi_compile_local _PRECISION_HEIGHT_OFFSET _PRECISION_SIMPLE _PRECISION_FLAT
+
+#define E 0.0001
+
+RWTexture2D<float> ResultSimulation;
+//RWTexture2D<float> ResultRipple;
+
+#if _PRECISION_HEIGHT_OFFSET
+Texture2D<float> WaveHeightOffsetTex;
+#elif _PRECISION_SIMPLE
+Texture2D<float4> WaveOffsetTex;
+#endif
+Texture2D<float> RippleProjectionTex;
+
+float2 CameraOffset;
+float2 ProjectorOffset;
+float ProjectorY;
+
+float2 RippleTextureSize;
+float2 RippleProjectionSize;
+float WaveProjectionSize;
+
+float DeltaTime;
+float MaxDepth;
+float RippleTime;
+float RestoreTime;
+float BlurStep;
+float BlurAttenuation;
+
+sampler LinearClampSampler;
+
+
+// very little blur to smooth hard edges - actually, not needed, its just an leftover
+float BlurH(uint2 id, float current, RWTexture2D<float> tex)
+{
+    float a = tex[id - uint2(1, 0)];
+    float b = tex[id + uint2(1, 0)];
+    float v = (a + b + current) * 0.333;
+    return v;//lerp(v, current, 0.25);
+}
+float BlurV(uint2 id, float current, RWTexture2D<float> tex)
+{
+    float a = tex[id - uint2(0, 1)];
+    float b = tex[id + uint2(0, 1)];
+    float v = (a + b + current) * 0.333;
+    return v;//lerp(v, current, 0.25);
+}
+
+float SampleRippleH(float x, float y)
+{
+    x = clamp(0, RippleTextureSize.x - 1, x);
+
+    float x1 = floor(x);
+    float x2 = ceil(x);
+
+    float a = ResultSimulation[uint2(x1, y)];
+    float b = ResultSimulation[uint2(x2, y)];
+
+    return lerp(a, b, frac(x));
+}
+float SampleRippleV(float x, float y)
+{
+    y = clamp(0, RippleTextureSize.y - 1, y);
+
+    float y1 = floor(y);
+    float y2 = ceil(y);
+
+    float a = ResultSimulation[uint2(x, y1)];
+    float b = ResultSimulation[uint2(x, y2)];
+
+    return lerp(a, b, frac(y));
+}
+float SampleRippleVH(float x, float y)
+{
+    float a = SampleRippleH(x,y);
+    float b = SampleRippleV(x,y);
+    return lerp(a, b, 0.5);
+}
+
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    float projection = RippleProjectionTex[id.xy];
+    float ripple = ResultSimulation[id.xy];
+
+    float2 blurOffsetUnit = float2(
+        RippleTextureSize.x / RippleProjectionSize.x,
+        RippleTextureSize.y / RippleProjectionSize.y
+        ) * BlurStep;
+
+    float nb1 = SampleRippleH(float(id.x) + blurOffsetUnit.x, id.y);
+    float nb2 = SampleRippleH(float(id.x) - blurOffsetUnit.x, id.y);
+    float nb3 = SampleRippleV(id.x, float(id.y) + blurOffsetUnit.y);
+    float nb4 = SampleRippleV(id.x, float(id.y) - blurOffsetUnit.y);
+    /* // take also take into account corner - unneccesary actually
+    float nbC1 = SampleRippleVH(float(id.x) + blurOffsetUnit.x, float(id.y) + blurOffsetUnit.y);
+    float nbC2 = SampleRippleVH(float(id.x) - blurOffsetUnit.x, float(id.y) + blurOffsetUnit.y);
+    float nbC3 = SampleRippleVH(float(id.x) + blurOffsetUnit.x, float(id.y) - blurOffsetUnit.y);
+    float nbC4 = SampleRippleVH(float(id.x) - blurOffsetUnit.x, float(id.y) - blurOffsetUnit.y);
+    */
+    float nbMax1 = max(max(nb1,nb2), max(nb3,nb4));
+    /*
+    float nbMax2 = max(max(nbC1,nbC2), max(nbC3,nbC4));
+    float nbMax = max(nbMax1, nbMax2);
+    */
+    float nbMax = nbMax1;
+
+    AllMemoryBarrier();
+
+    float2 rippleUV = float2(id.x, id.y) / float2(RippleTextureSize.x, RippleTextureSize.y);
+    float2 position = ProjectorOffset + float2(
+        rippleUV.x - 0.5,
+        rippleUV.y - 0.5
+        ) * RippleProjectionSize;
+
+    float2 waveUV = ((position - CameraOffset) / WaveProjectionSize) + float2(0.5, 0.5);
+
+    #if _PRECISION_HEIGHT_OFFSET
+    float wave = WaveHeightOffsetTex.SampleLevel(LinearClampSampler, waveUV, 0) + ProjectorY;
+    #elif _PRECISION_SIMPLE
+    float wave = WaveOffsetTex.SampleLevel(LinearClampSampler, waveUV, 0).y + ProjectorY;
+    #elif _PRECISION_FLAT
+    float wave = ProjectorY;
+    #endif
+
+
+    float targetRipple = 0.0f;
+
+    if (projection < wave)
+    {
+        targetRipple = saturate((wave - projection) / MaxDepth);
+    }
+    else
+    {
+        targetRipple = saturate(nbMax - BlurAttenuation);
+    }
+
+    if (targetRipple > ripple)
+    {
+        ripple += DeltaTime / RippleTime;
+    }
+    else if (targetRipple < ripple)
+    {
+        ripple -= DeltaTime / RestoreTime;
+    }
+
+    ripple = saturate(ripple);
+
+    if (id.x == 0 || id.y == 0 || id.x == (uint(RippleTextureSize.x) - 1) || id.y == (uint(RippleTextureSize.y) - 1))
+    {
+        ripple = 0;
+    }
+
+    ResultSimulation[id.xy] = ripple;
+
+    // this extra blur is actually not needed
+    // results in only very slighly better effect
+    // but with unneccesary performance impact
+
+    /*
+    AllMemoryBarrier();
+
+    ripple = BlurH(id.xy, ripple, ResultSimulation);
+    ResultRipple[id.xy] = ripple;
+
+    AllMemoryBarrier();
+
+   /ripple = BlurV(id.xy, ripple, ResultRipple);
+    
+    if (id.x == 0 || id.y == 0 ||
+        int(id.x) == int(RippleTextureSize.x-1) ||
+        int(id.y) == int(RippleTextureSize.y-1))
+        ripple = 0;
+
+
+    ResultRipple[id.xy] = ripple;
+    */
+}

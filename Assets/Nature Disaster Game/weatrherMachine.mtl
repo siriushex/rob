@@ -1,0 +1,74 @@
+newmtl Screen1Mtl
+Material Color
+Ka 0.991393 0.899384 0.505432
+Kd 0.991393 0.899384 0.505432
+Ks 0.660929 0.59959 0.336955 
+
+d 1
+
+Ns 255
+
+map_Ka Screen1_diff.png
+map_Kd Screen1_diff.png
+map_d Screen1_diff.png
+
+map_Bump Screen1_nmap.png
+
+map_Ns Screen1_spec.png
+
+newmtl Part1Mtl
+Material Color
+Ka 0.982826 0.827726 0.271577
+Kd 0.982826 0.827726 0.271577
+Ks 0.655218 0.551817 0.181052 
+
+d 1
+
+Ns 255
+
+map_Ka Screen1_diff.png
+map_Kd Screen1_diff.png
+map_d Screen1_diff.png
+
+map_Bump Screen1_nmap.png
+
+map_Ns Screen1_spec.png
+
+newmtl Tube21Mtl
+Material Color
+Ka 0.464741 0.65237 0.781751
+Kd 0.464741 0.65237 0.781751
+Ks 0.0291602 0.040933 0.049051 
+
+d 0.792157
+
+Ns 0
+
+newmtl Enginecolor1Mtl
+Material Color
+Ka 0.00715504 0.018913 0.0315514
+Kd 0.00715504 0.018913 0.0315514
+Ks 0.000645356 0.00170588 0.00284581 
+
+d 1
+
+Ns 0
+
+newmtl Globe1Mtl
+Material Color
+Ka 0.789314 0.781751 0.74453
+Kd 0.789314 0.781751 0.74453
+Ks 0.0928604 0.0919707 0.0875918 
+
+d 0.501961
+
+Ns 0
+
+map_Ka Globe1_diff.png
+map_Kd Globe1_diff.png
+map_d Globe1_diff.png
+
+map_Bump Globe1_nmap.png
+
+map_Ns Globe1_spec.png
+

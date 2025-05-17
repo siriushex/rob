@@ -1,0 +1,34 @@
+newmtl Part1Mtl
+Material Color
+Ka 0.124741 0.113921 0.121986
+Kd 0.124741 0.113921 0.121986
+Ks 0.00782688 0.00714798 0.00765401 
+
+d 1
+
+Ns 0
+
+newmtl Board1Mtl
+Material Color
+Ka 0.789314 0.781751 0.74453
+Kd 0.789314 0.781751 0.74453
+Ks 0.0495256 0.049051 0.0467156 
+
+d 1
+
+Ns 0
+
+newmtl Board2Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Board2_diff.png
+map_Kd Board2_diff.png
+map_d Board2_diff.png
+

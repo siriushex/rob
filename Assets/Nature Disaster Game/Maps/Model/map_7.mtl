@@ -1,0 +1,172 @@
+newmtl Part78Mtl
+Material Color
+Ka 0.560499 0.0169881 0.00775103
+Kd 0.560499 0.0169881 0.00775103
+Ks 0.0351686 0.00106592 0.000486339 
+
+d 1
+
+Ns 0
+
+newmtl Part1Mtl
+Material Color
+Ka 0.20471 0.106156 0.0581872
+Kd 0.20471 0.106156 0.0581872
+Ks 0.011239 0.00582818 0.00319459 
+
+d 1
+
+Ns 0
+
+map_Ka Part1_diff.png
+map_Kd Part1_diff.png
+map_d Part1_diff.png
+
+map_Bump Part1_nmap.png
+
+map_Ns Part1_spec.png
+
+newmtl Vehicleseat1Mtl
+Material Color
+Ka 0.91575 0.618686 0.0253713
+Kd 0.91575 0.618686 0.0253713
+Ks 0.0574588 0.0388195 0.00159192 
+
+d 1
+
+Ns 0
+
+newmtl Wedge5Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0234425 0.0231273 0.02408 
+
+d 1
+
+Ns 0
+
+newmtl Ring1Mtl
+Material Color
+Ka 0.176774 0.242796 0.344026
+Kd 0.176774 0.242796 0.344026
+Ks 0.0110917 0.0152343 0.0215859 
+
+d 1
+
+Ns 0
+
+newmtl Wedge1Mtl
+Material Color
+Ka 0.124741 0.113921 0.121986
+Kd 0.124741 0.113921 0.121986
+Ks 0.00782688 0.00714798 0.00765401 
+
+d 1
+
+Ns 0
+
+newmtl Part2Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0249077 0.0245727 0.025585 
+
+d 1
+
+Ns 0
+
+map_Ka Part2_diff.png
+map_Kd Part2_diff.png
+map_d Part2_diff.png
+
+map_Bump Part2_nmap.png
+
+map_Ns Part2_spec.png
+
+newmtl Part60Mtl
+Material Color
+Ka 0.0677246 0.315763 0.0677246
+Kd 0.0677246 0.315763 0.0677246
+Ks 0.00424939 0.0198126 0.00424939 
+
+d 1
+
+Ns 0
+
+newmtl Silowall1Mtl
+Material Color
+Ka 0.789314 0.781751 0.74453
+Kd 0.789314 0.781751 0.74453
+Ks 0.0495256 0.049051 0.0467156 
+
+d 1
+
+Ns 0
+
+newmtl Wheel1Mtl
+Material Color
+Ka 0.00715504 0.018913 0.0315514
+Kd 0.00715504 0.018913 0.0315514
+Ks 0.000448943 0.0011867 0.0019797 
+
+d 1
+
+Ns 0
+
+newmtl Part114Mtl
+Material Color
+Ka 0.14198 0.0477758 0.0169881
+Kd 0.14198 0.0477758 0.0169881
+Ks 0.00890857 0.00299769 0.00106592 
+
+d 1
+
+Ns 0
+
+newmtl Ground1Mtl
+Material Color
+Ka 0.20471 0.106156 0.0581872
+Kd 0.20471 0.106156 0.0581872
+Ks 0.0128446 0.00666077 0.00365096 
+
+d 1
+
+Ns 40
+
+map_Ka Ground1_diff.png
+map_Kd Ground1_diff.png
+map_d Ground1_diff.png
+
+map_Bump Ground1_nmap.png
+
+map_Ns Ground1_spec.png
+
+newmtl Part166Mtl
+Material Color
+Ka 0.14198 0.0477758 0.0169881
+Kd 0.14198 0.0477758 0.0169881
+Ks 0.007795 0.00262298 0.000932677 
+
+d 1
+
+Ns 0
+
+map_Ka Part1_diff.png
+map_Kd Part1_diff.png
+map_d Part1_diff.png
+
+map_Bump Part1_nmap.png
+
+map_Ns Part1_spec.png
+
+newmtl Firestarter1Mtl
+Material Color
+Ka 0.982826 0.827726 0.271577
+Kd 0.982826 0.827726 0.271577
+Ks 0.0616675 0.0519357 0.0170402 
+
+d 0.501961
+
+Ns 0
+

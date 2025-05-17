@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea64ca1123ca774bb5bc4b781cf0fac, type: 3}
+  m_Name: Example Underwater A
+  m_EditorClassIdentifier: 
+  overrideFog: 1
+  fogConfig:
+    fog: 1
+    fogColor: {r: 0.4, g: 0.55, b: 0.7, a: 1}
+    fogMode: 3
+    fogDensity: 0.02
+    fogStartDistance: 0
+    fogEndDistance: 300
+  showSuperfarPlane: 0
+  showGodRays: 1
+  raysTint: {r: 0, g: 0.41, b: 0.47, a: 1}
+  raysLength: 30
+  raysWidthRange: {x: 7, y: 13}
+  raysIntensity: 0.3
+  raysDensity: 1
+  raysDistance: 80
+  raysDepthFade: 20
+  raysCameraFade: 20
+  raysWaterFade: 2
+  raysOccludeByShadows: 0
+  showCaustics: 1
+  causticsTint: {r: 0, g: 0.41, b: 0.47, a: 1}
+  causticsIntensity: 0.63
+  causticsTexture1:
+    texture: {fileID: 2800000, guid: a17b971337f35a5468f958ccdb089945, type: 3}
+    size: 15
+    speed: 0.05
+  causticsTexture2:
+    texture: {fileID: 2800000, guid: a17b971337f35a5468f958ccdb089945, type: 3}
+    size: -18.495
+    speed: -0.099
+  causticsDistance: 70
+  causticsDepth: 50
+  causticsWaterFade: 2
+  causticsWaterLevelOffset: 1
+  causticsOccludeByShadows: 1
+  causticsShadowsAttenuation: 0.75
+  causticsChromaticAberration: 1
+  causticsChromaticAberrationStrength: 0.25
+  overrideVolume: 1
+  volumeProfile: {fileID: 11400000, guid: c2a41dd27058cfa49bd4d1928872b954, type: 2}
+  volumeWeight: 1

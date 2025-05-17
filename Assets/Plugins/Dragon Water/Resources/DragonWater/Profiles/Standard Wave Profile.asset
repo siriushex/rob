@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6a421979ebaec4ca89794b74597d9f, type: 3}
+  m_Name: Standard Wave Profile
+  m_EditorClassIdentifier: 
+  waves:
+  - direction: {x: -0.53857344, y: -0.8425786}
+    number: 0.028301436
+    steepness: 0.08550152
+    amplitude: 1.3572233
+    speed: 18.617882
+  - direction: {x: -0.5980076, y: 0.8014904}
+    number: 0.07622762
+    steepness: 0.17300229
+    amplitude: 1.0195897
+    speed: 11.3443165
+  - direction: {x: -0.9766932, y: -0.21464014}
+    number: 0.13864756
+    steepness: 0.22167504
+    amplitude: 0.71827465
+    speed: 8.411595
+  - direction: {x: -0.7081268, y: -0.7060853}
+    number: 0.20364399
+    steepness: 0.22395387
+    amplitude: 0.4940523
+    speed: 6.940627
+  - direction: {x: -0.18541735, y: 0.9826599}
+    number: 0.30574885
+    steepness: 0.21677938
+    amplitude: 0.31852174
+    speed: 5.6643763
+  - direction: {x: 0.6556794, y: -0.75503945}
+    number: 0.40459225
+    steepness: 0.20803049
+    amplitude: 0.23099117
+    speed: 4.924087
+  - direction: {x: 0.14739937, y: -0.98907703}
+    number: 0.4833614
+    steepness: 0.20144498
+    amplitude: 0.18722785
+    speed: 4.5050387
+  - direction: {x: 0.9574212, y: 0.2886947}
+    number: 0.6921078
+    steepness: 0.18953106
+    amplitude: 0.123024784
+    speed: 3.7648497
+  - direction: {x: 0.67451495, y: -0.73826116}
+    number: 0.7834223
+    steepness: 0.18763559
+    amplitude: 0.10759825
+    speed: 3.5386415
+  - direction: {x: -0.97647244, y: 0.21564229}
+    number: 0.8979541
+    steepness: 0.18580607
+    amplitude: 0.092959054
+    speed: 3.3052738
+  - direction: {x: 0.18729629, y: -0.98230344}
+    number: 1.1071634
+    steepness: 0.1714818
+    amplitude: 0.069581255
+    speed: 2.976656
+  - direction: {x: 0.9990333, y: -0.043960154}
+    number: 1.2821158
+    steepness: 0.15474042
+    amplitude: 0.05422037
+    speed: 2.7661192
+  autoWaveSpeed: 1
+  autoWaveSpeedGravity: 9.81
+  autoWaveHeight: 1
+  autoWaveHeightRatio: 0.143
+  textureSize: 1024
+  projectionSize: 1024
+  hillnessOffsetFactor: 0.054
+  hillnessNormalPower: 1
+  globalAmplitudeMultiplier: 1.2
+  globalSteepnessMultiplier: 1
+  globalHillnessMultiplier: 1
+  includeLocalAreas: 1
+  rippleMaxDepth: 1
+  rippleTime: 0.5
+  rippleRestoreTime: 15
+  rippleBlurStep: 0.5
+  rippleBlurAttenuation: 0.3

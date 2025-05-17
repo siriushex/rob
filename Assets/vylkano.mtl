@@ -1,0 +1,108 @@
+newmtl Eruptioneffect1Mtl
+Material Color
+Ka 1 0.442323 0
+Kd 1 0.442323 0
+Ks 0.0431373 0.0190806 0 
+
+d 0.752941
+
+Ns 0
+
+map_Ka Eruptioneffect1_diff.png
+map_Kd Eruptioneffect1_diff.png
+map_d Eruptioneffect1_diff.png
+
+map_Bump Eruptioneffect1_nmap.png
+
+map_Ns Eruptioneffect1_spec.png
+
+newmtl Magma1Mtl
+Material Color
+Ka 0.560499 0.0169881 0.00775103
+Kd 0.560499 0.0169881 0.00775103
+Ks 0.0241784 0.000732818 0.000334358 
+
+d 0.752941
+
+Ns 0
+
+map_Ka Eruptioneffect1_diff.png
+map_Kd Eruptioneffect1_diff.png
+map_d Eruptioneffect1_diff.png
+
+map_Bump Eruptioneffect1_nmap.png
+
+map_Ns Eruptioneffect1_spec.png
+
+newmtl SmoothBlockModel1Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0249077 0.0245727 0.025585 
+
+d 1
+
+Ns 0
+
+map_Ka SmoothBlockModel1_diff.png
+map_Kd SmoothBlockModel1_diff.png
+map_d SmoothBlockModel1_diff.png
+
+map_Bump SmoothBlockModel1_nmap.png
+
+map_Ns SmoothBlockModel1_spec.png
+
+newmtl Volcanopart1Mtl
+Material Color
+Ka 0.20471 0.106156 0.0581872
+Kd 0.20471 0.106156 0.0581872
+Ks 0.0136473 0.00707707 0.00387915 
+
+d 1
+
+Ns 0
+
+map_Ka SmoothBlockModel1_diff.png
+map_Kd SmoothBlockModel1_diff.png
+map_d SmoothBlockModel1_diff.png
+
+map_Bump SmoothBlockModel1_nmap.png
+
+map_Ns SmoothBlockModel1_spec.png
+
+newmtl SmoothBlockModel8Mtl
+Material Color
+Ka 0.124741 0.113921 0.121986
+Kd 0.124741 0.113921 0.121986
+Ks 0.00831606 0.00759473 0.00813238 
+
+d 1
+
+Ns 0
+
+map_Ka SmoothBlockModel1_diff.png
+map_Kd SmoothBlockModel1_diff.png
+map_d SmoothBlockModel1_diff.png
+
+map_Bump SmoothBlockModel1_nmap.png
+
+map_Ns SmoothBlockModel1_spec.png
+
+newmtl Lava1Mtl
+Material Color
+Ka 0.708298 0.238828 0.0494335
+Kd 0.708298 0.238828 0.0494335
+Ks 0.0472199 0.0159219 0.00329556 
+
+d 1
+
+Ns 0
+
+map_Ka SmoothBlockModel1_diff.png
+map_Kd SmoothBlockModel1_diff.png
+map_d SmoothBlockModel1_diff.png
+
+map_Bump SmoothBlockModel1_nmap.png
+
+map_Ns SmoothBlockModel1_spec.png
+

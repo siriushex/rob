@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc933e045852b0439e6b766fcb1605a, type: 3}
+  m_Name: DragonWaterConfig
+  m_EditorClassIdentifier: 
+  version: 1.0.0
+  autoTimeSimulation: 1
+  oceanQualities:
+  - name: Low
+    densities:
+    - 1
+    - 2
+    - 4
+    - 8
+    - 16
+    lengths:
+    - 64
+    - 96
+    - 128
+    - 256
+    - 512
+    maxFarDistance: 5000
+    gridSnapUnits: 1
+  - name: Low Far
+    densities:
+    - 1
+    - 4
+    - 16
+    lengths:
+    - 160
+    - 256
+    - 512
+    maxFarDistance: 5000
+    gridSnapUnits: 1
+  - name: Medium
+    densities:
+    - 0.5
+    - 1
+    - 2
+    - 8
+    - 16
+    lengths:
+    - 64
+    - 96
+    - 128
+    - 256
+    - 512
+    maxFarDistance: 5000
+    gridSnapUnits: 1
+  - name: Medium Far
+    densities:
+    - 0.5
+    - 2
+    - 16
+    lengths:
+    - 160
+    - 256
+    - 512
+    maxFarDistance: 5000
+    gridSnapUnits: 1
+  - name: High
+    densities:
+    - 0.25
+    - 0.5
+    - 2
+    - 8
+    - 16
+    lengths:
+    - 64
+    - 96
+    - 128
+    - 256
+    - 512
+    maxFarDistance: 5000
+    gridSnapUnits: 1
+  - name: High Far
+    densities:
+    - 0.25
+    - 1
+    - 16
+    lengths:
+    - 160
+    - 256
+    - 512
+    maxFarDistance: 5000
+    gridSnapUnits: 1
+  - name: Top Down
+    densities:
+    - 1
+    lengths:
+    - 50
+    maxFarDistance: 1000
+    gridSnapUnits: 1
+  waterRendererLayer: 23
+  cutoutLayer: 23
+  underwaterVolumeLayer: 0
+  underwaterVolumePriority: 10
+  rippleLayer: 24
+  rippleURPRendererIndex: 1
+  debugLevel: 0
+  drawDebugInspectors: 0
+  buildWaterShaderStripping: []
