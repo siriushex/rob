@@ -1,0 +1,13 @@
+{
+  "servers": [
+    {
+      "id": "server1",
+      "apiUrl": "https://outline.example.com:1234",
+      "apiKey": "OUTLINE_API_KEY"
+    }
+  ],
+  "outline": {
+    "defaultPort": 443,
+    "note": "Replace apiUrl and apiKey with your Outline server details"
+  }
+}
